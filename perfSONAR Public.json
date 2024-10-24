@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -19,14 +22,17 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 16,
-  "iteration": 1704893903451,
+  "id": 14,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "datasource": null,
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "k-5GTrl7z"
+      },
       "gridPos": {
         "h": 2,
         "w": 9,
@@ -35,10 +41,15 @@
       },
       "id": 86,
       "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
         "content": "<div>\n<a href=\"https://www.perfsonar.net\"><img src=\"https://www.perfsonar.net/images/logos/perfsonar/perfsonar-logo-black-full.svg\" alt=\"perfSONAR Logo\" target=\"_blank\" height=\"50.0pt\" /> </a>\n</div>",
         "mode": "markdown"
       },
-      "pluginVersion": "8.1.8",
+      "pluginVersion": "10.4.5",
       "targets": [
         {
           "alias": "",
@@ -71,2472 +82,44 @@
       "type": "text"
     },
     {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 2
-      },
-      "id": 6,
-      "panels": [
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 377
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "Host Name"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Host Name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 394
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 0,
-            "y": 4
-          },
-          "id": 18,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-name",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_term",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Host Name",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-hardware-cpuid.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 404
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "Hardware"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 8,
-            "y": 4
-          },
-          "id": 20,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": [
-              {
-                "desc": true,
-                "displayName": "Count"
-              }
-            ]
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-hardware-cpuid.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "datasource": {
-                "type": "elasticsearch",
-                "uid": "k-5GTrl7z"
-              },
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Hardware",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-hardware-memory.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 415
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 16,
-            "y": 4
-          },
-          "id": 22,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-hardware-memory.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Memory",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-os-name.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Operating System"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Operating System"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 394
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 0,
-            "y": 13
-          },
-          "id": 26,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-os-name.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Operating System",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-os-version.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Operating System Version"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Operating System"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 394
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 8,
-            "y": 13
-          },
-          "id": 38,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-os-version.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Operating System Version",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "pshost-toolkitversion.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Toolkit Version"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Toolkit Version"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 415
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 16,
-            "y": 13
-          },
-          "id": 30,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "pshost-toolkitversion.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Toolkit Version",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "group-communities.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width"
-                  },
-                  {
-                    "id": "displayName",
-                    "value": "Communities"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Communities"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 395
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 8,
-            "x": 0,
-            "y": 22
-          },
-          "id": 32,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "group-communities.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Communities ",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-os-kernel.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Kernel"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 8,
-            "x": 8,
-            "y": 22
-          },
-          "id": 28,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-os-kernel.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "datasource": {
-                "type": "elasticsearch",
-                "uid": "k-5GTrl7z"
-              },
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Kernel",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "dark-blue",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "host-hardware-processorspeed.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Process Speed of Node"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Interface Capacity"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 402
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Process Speed of Node"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 402
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 8,
-            "x": 16,
-            "y": 22
-          },
-          "id": 24,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "host-hardware-processorspeed.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:host",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Process Speed of Node",
-          "type": "table"
-        }
-      ],
-      "title": "Host Information",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 3
-      },
-      "id": 4,
-      "panels": [
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "text",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "super-light-yellow",
-                    "value": null
-                  },
-                  {
-                    "color": "semi-dark-blue",
-                    "value": 3
-                  },
-                  {
-                    "color": "semi-dark-red",
-                    "value": 5
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "service-name.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Service Name"
-                  },
-                  {
-                    "id": "custom.displayMode",
-                    "value": "auto"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Service Name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 392
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 0,
-            "y": 3
-          },
-          "id": 36,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "service-name.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Service Name",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "text",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "super-light-purple",
-                    "value": null
-                  },
-                  {
-                    "color": "light-yellow",
-                    "value": 3
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "location-sitename.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Locator"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "location-sitename.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 404
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "location-sitename.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 417
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 8,
-            "y": 3
-          },
-          "id": 10,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "location-sitename.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Addresses",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "text",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "super-light-orange",
-                    "value": null
-                  },
-                  {
-                    "color": "super-light-red",
-                    "value": 3
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "location-country.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Location Country"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Location Country"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 409
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 16,
-            "y": 3
-          },
-          "id": 12,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "location-country.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "1",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "hide": false,
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Geographic Location",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "text",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 2
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "service-version.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Version"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Version"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 403
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 0,
-            "y": 12
-          },
-          "id": 16,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "service-version.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Version",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "text",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "super-light-green",
-                    "value": null
-                  },
-                  {
-                    "color": "light-red",
-                    "value": 3
-                  },
-                  {
-                    "color": "semi-dark-orange",
-                    "value": 5
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "group-domains.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "Domain"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Communities"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 392
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Domain"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 416
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 8,
-            "y": 12
-          },
-          "id": 14,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "group-domains.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Domain",
-          "type": "table"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "text",
-                "mode": "fixed"
-              },
-              "custom": {
-                "align": "center",
-                "displayMode": "color-text",
-                "filterable": true
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 2
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "pscheduler-tests.keyword"
-                },
-                "properties": [
-                  {
-                    "id": "displayName",
-                    "value": "pScheduler Tools"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Version"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 403
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "pScheduler Tools"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 413
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 8,
-            "x": 16,
-            "y": 12
-          },
-          "id": 37,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "8.1.8",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [
-                {
-                  "field": "pscheduler-tests.keyword",
-                  "id": "2",
-                  "settings": {
-                    "min_doc_count": "1",
-                    "order": "desc",
-                    "orderBy": "_count",
-                    "size": "0"
-                  },
-                  "type": "terms"
-                }
-              ],
-              "metrics": [
-                {
-                  "id": "1",
-                  "type": "count"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "pScheduler Tools",
-          "type": "table"
-        }
-      ],
-      "title": "Service Information",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 4
-      },
-      "id": 8,
-      "panels": [
-        {
-          "datasource": null,
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "dark-red",
-                    "value": null
-                  },
-                  {
-                    "color": "orange",
-                    "value": 0
-                  },
-                  {
-                    "color": "dark-green",
-                    "value": 10
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 17,
-            "w": 13,
-            "x": 0,
-            "y": 5
-          },
-          "id": 34,
-          "options": {
-            "basemap": {
-              "config": {},
-              "name": "Layer 0",
-              "type": "default"
-            },
-            "controls": {
-              "mouseWheelZoom": true,
-              "showAttribution": true,
-              "showDebug": false,
-              "showScale": false,
-              "showZoom": true
-            },
-            "layers": [
-              {
-                "config": {
-                  "color": {
-                    "fixed": "dark-green"
-                  },
-                  "fillOpacity": 0.3,
-                  "shape": "circle",
-                  "showLegend": true,
-                  "size": {
-                    "fixed": 2,
-                    "max": 15,
-                    "min": 2
-                  },
-                  "style": {
-                    "color": {
-                      "fixed": "light-green"
-                    }
-                  }
-                },
-                "location": {
-                  "mode": "auto"
-                },
-                "name": "Layer 1",
-                "type": "markers"
-              }
-            ],
-            "view": {
-              "id": "coords",
-              "lat": 0,
-              "lon": 0,
-              "shared": false,
-              "zoom": 2
-            }
-          },
-          "pluginVersion": "8.3.3",
-          "targets": [
-            {
-              "alias": "",
-              "bucketAggs": [],
-              "metrics": [
-                {
-                  "id": "1",
-                  "settings": {
-                    "size": "8000"
-                  },
-                  "type": "raw_data"
-                }
-              ],
-              "query": "(+${Search} OR (${Domain} AND ${Communities})) AND type:service",
-              "refId": "A",
-              "timeField": "expires"
-            }
-          ],
-          "title": "Map Services",
-          "transformations": [
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "_expiresAsTimestamp": true,
-                  "_id": true,
-                  "_index": true,
-                  "_lastUpdated": true,
-                  "_type": true,
-                  "client-uuid": true,
-                  "expires": true,
-                  "location-country": false,
-                  "location-latitude": false,
-                  "service-administrators": true,
-                  "service-host": true,
-                  "sort": true,
-                  "state": true,
-                  "ttl": true,
-                  "uri": true
-                },
-                "indexByName": {},
-                "renameByName": {
-                  "location-latitude": "latitude",
-                  "location-longitude": "longitude"
-                }
-              }
-            }
-          ],
-          "type": "geomap"
-        }
-      ],
-      "title": "Service Map",
-      "type": "row"
-    },
-    {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 5
-      },
-      "id": 40,
-      "panels": [],
-      "title": "General",
-      "type": "row"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "fd7e3a69-6808-476d-b15d-72e0d2a9e612"
       },
       "gridPos": {
-        "h": 7,
+        "h": 2,
         "w": 8,
-        "x": 0,
-        "y": 6
+        "x": 9,
+        "y": 0
       },
-      "id": 62,
+      "id": 118,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
         },
-        "text": {},
-        "textMode": "auto"
+        "content": "<style type=\"text/css\">\n.css-1879wqk {\n    max-width: 800px;\n    overflow-y: scroll;\n    max-height: 500px;\n}\n</style>",
+        "mode": "html"
       },
-      "pluginVersion": "8.1.8",
+      "pluginVersion": "10.4.5",
       "targets": [
         {
           "alias": "",
           "bucketAggs": [
             {
-              "field": "type",
+              "field": "expires",
               "id": "2",
               "settings": {
-                "min_doc_count": "0",
-                "order": "desc",
-                "orderBy": "_term",
-                "size": "10"
+                "interval": "auto"
               },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "perfSONAR hosts",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "blue",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 8,
-        "y": 6
-      },
-      "id": 76,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "first"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "type",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "0",
-                "order": "desc",
-                "orderBy": "1",
-                "size": "10"
-              },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:service",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "perfSONAR services",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-purples"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 16,
-        "y": 6
-      },
-      "id": 78,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "sum"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "type",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "0",
-                "order": "desc",
-                "orderBy": "1",
-                "size": "10"
-              },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:interface",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "perfSONAR interfaces",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "description": "Community, project or any other group that host belongs to.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "min": 1,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "light-green",
-                "value": null
-              },
-              {
-                "color": "blue",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 22,
-        "x": 0,
-        "y": 13
-      },
-      "id": 64,
-      "options": {
-        "displayMode": "gradient",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "showUnfilled": true,
-        "text": {}
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "group-communities.keyword",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "1",
-                "order": "desc",
-                "orderBy": "1",
-                "size": "10"
-              },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "Top 10 Communities ",
-      "transparent": true,
-      "type": "bargauge"
-    },
-    {
-      "datasource": null,
-      "description": "Administrative domains in which host resides.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "min": 1,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "semi-dark-blue",
-                "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 30
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 22,
-        "x": 0,
-        "y": 23
-      },
-      "id": 66,
-      "options": {
-        "displayMode": "gradient",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "/^Count$/",
-          "values": true
-        },
-        "showUnfilled": true,
-        "text": {}
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "group-domains.keyword",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "1",
-                "order": "desc",
-                "orderBy": "1",
-                "size": "10"
-              },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "Top 10 Domains ",
-      "transparent": true,
-      "type": "bargauge"
-    },
-    {
-      "datasource": null,
-      "description": "Name of perfSONAR package bundle installed.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            }
-          },
-          "mappings": []
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "perfsonar-toolkit"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "semi-dark-red",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "perfsonar-testpoint"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "semi-dark-blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "perfsonar-centralmanagement"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "semi-dark-purple",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "perfsonar-tools"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "light-yellow",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "perfsonar-core"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-green",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 33
-      },
-      "id": 68,
-      "options": {
-        "legend": {
-          "displayMode": "table",
-          "placement": "right",
-          "values": [
-            "value"
-          ]
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single"
-        }
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "pshost-bundle.keyword",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "2",
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
+              "type": "date_histogram"
             }
           ],
           "datasource": {
             "type": "elasticsearch",
-            "uid": "k-5GTrl7z"
+            "uid": "fd7e3a69-6808-476d-b15d-72e0d2a9e612"
           },
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "PS Bundle",
-      "transformations": [
-        {
-          "id": "rowsToFields",
-          "options": {}
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "perfsonar-testpoint",
-            "mode": "reduceRow",
-            "reduce": {
-              "include": [
-                "test-point",
-                "perfsonar-testpoint"
-              ],
-              "reducer": "sum"
-            },
-            "replaceFields": false
-          }
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "perfsonar-tools",
-            "mode": "reduceRow",
-            "reduce": {
-              "include": [
-                "tools",
-                "perfsonar-tools"
-              ],
-              "reducer": "sum"
-            },
-            "replaceFields": false
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "perfsonar-toolkit",
-                "perfsonar-centralmanagement",
-                "perfsonar-core",
-                "perfsonar-testpoint 2",
-                "perfsonar-tools 2"
-              ]
-            }
-          }
-        }
-      ],
-      "transparent": true,
-      "type": "piechart"
-    },
-    {
-      "datasource": null,
-      "description": "A version of perfSONAR Toolkit installed.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "displayMode": "color-text",
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-green",
-                "value": null
-              },
-              {
-                "color": "dark-blue",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 11,
-        "x": 12,
-        "y": 33
-      },
-      "id": 70,
-      "options": {
-        "footer": {
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": true
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "pshost-toolkitversion.keyword",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "1",
-                "order": "desc",
-                "orderBy": "1",
-                "size": "0"
-              },
-              "type": "terms"
-            }
-          ],
           "metrics": [
             {
               "id": "1",
@@ -2548,17 +131,32 @@
           "timeField": "expires"
         }
       ],
-      "title": "PS toolkit version",
       "transparent": true,
-      "type": "table"
+      "type": "text"
     },
     {
-      "datasource": null,
-      "description": "Type of the host privacy.",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 93,
+      "panels": [],
+      "title": "Host Information",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "custom": {
             "hideFrom": {
@@ -2567,291 +165,13 @@
               "viz": false
             }
           },
-          "mappings": []
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "unknown"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "public"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-purple",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "research-education"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-yellow",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "private"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-red",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "limited"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-green",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 42
-      },
-      "id": 72,
-      "options": {
-        "displayLabels": [],
-        "legend": {
-          "displayMode": "table",
-          "placement": "right",
-          "values": [
-            "value"
-          ]
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "tooltip": {
-          "mode": "single"
-        }
-      },
-      "pluginVersion": "8.0.7",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "pshost-access-policy.keyword",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "0",
-                "missing": "missing",
-                "order": "desc",
-                "orderBy": "_term",
-                "size": "0"
-              },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "Access Policy",
-      "transformations": [
-        {
-          "id": "rowsToFields",
-          "options": {}
-        },
-        {
-          "id": "calculateField",
-          "options": {
-            "alias": "unknown",
-            "mode": "reduceRow",
-            "reduce": {
-              "include": [
-                "missing",
-                "$(perfSONAR.access_policy[bond0])",
-                "$(perfSONAR.access_policy[bond0.2900])"
-              ],
-              "reducer": "sum"
-            }
-          }
-        },
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "research-education",
-                "public",
-                "private",
-                "limited",
-                "unknown"
-              ]
-            }
-          }
-        }
-      ],
-      "transparent": true,
-      "type": "piechart"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
           "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "semi-dark-blue",
-                "value": null
-              },
-              {
-                "color": "dark-yellow",
-                "value": 70
-              },
-              {
-                "color": "semi-dark-green",
-                "value": 85
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 11,
-        "x": 12,
-        "y": 43
-      },
-      "id": 74,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": true
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "text": {}
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "state",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "0",
-                "order": "desc",
-                "orderBy": "_term",
-                "size": "10"
-              },
-              "type": "terms"
-            }
-          ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "State",
-      "transparent": true,
-      "type": "gauge"
-    },
-    {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 52
-      },
-      "id": 60,
-      "panels": [],
-      "title": "Maps",
-      "type": "row"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
+          "noValue": "Unknown",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "super-light-green",
                 "value": null
               },
               {
@@ -2869,17 +189,74 @@
               {
                 "color": "#EF843C",
                 "value": 31
+              },
+              {
+                "color": "green",
+                "value": 41
               }
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "IPv6 enabled"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 1,
+                        "text": "false"
+                      },
+                      "1": {
+                        "index": 0,
+                        "text": "true"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Virtualisation"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 0,
+                        "text": "physical machine"
+                      },
+                      "1": {
+                        "index": 1,
+                        "text": "virtual machine"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
-        "h": 17,
-        "w": 14,
+        "h": 16,
+        "w": 11,
         "x": 0,
-        "y": 53
+        "y": 3
       },
       "id": 80,
       "options": {
@@ -2892,6 +269,7 @@
           "mouseWheelZoom": true,
           "showAttribution": true,
           "showDebug": false,
+          "showMeasure": false,
           "showScale": false,
           "showZoom": true
         },
@@ -2903,7 +281,7 @@
               },
               "fillOpacity": 0.2,
               "shape": "circle",
-              "showLegend": true,
+              "showLegend": false,
               "size": {
                 "fixed": 2,
                 "max": 15,
@@ -2911,8 +289,9 @@
               },
               "style": {
                 "color": {
-                  "fixed": "dark-green"
+                  "fixed": "green"
                 },
+                "opacity": 0.5,
                 "rotation": {
                   "fixed": 0,
                   "max": 360,
@@ -2931,32 +310,40 @@
               "lookup": "_lastUpdated",
               "mode": "auto"
             },
-            "name": "Layer 1",
+            "name": "Hosts",
             "type": "markers"
           }
         ],
+        "tooltip": {
+          "mode": "details"
+        },
         "view": {
+          "allLayers": true,
           "id": "zero",
           "lat": 0,
           "lon": 0,
           "zoom": 2
         }
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "10.4.5",
       "targets": [
         {
           "alias": "",
           "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
           "metrics": [
             {
               "id": "1",
               "settings": {
-                "size": "2000"
+                "size": "5000"
               },
               "type": "raw_data"
             }
           ],
-          "query": "type:host",
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
           "refId": "A",
           "timeField": "expires"
         }
@@ -2976,37 +363,952 @@
               "expires": true,
               "highlight": true,
               "host-administrators": true,
+              "host-hardware-cpuid": false,
+              "host-hardware-memory": true,
+              "host-hardware-processorcore": true,
+              "host-hardware-processorspeed": true,
               "host-net-interfaces": true,
+              "host-net-tcp-autotunemaxbuffer-recv": true,
+              "host-net-tcp-autotunemaxbuffer-send": true,
+              "host-net-tcp-congestionalgorithm": true,
+              "host-net-tcp-maxbuffer-recv": true,
+              "host-net-tcp-maxbuffer-send": true,
+              "location-code": true,
+              "location-sitename": true,
+              "location-state": true,
+              "pshost-access-notes": true,
+              "pshost-access-policy": false,
+              "pshost-bundle": false,
+              "pshost-bundle-version": true,
+              "pshost-install-method": true,
+              "pshost-role": true,
+              "pshost-toolkitversion": false,
               "sort": true,
+              "state": true,
               "ttl": true,
+              "type": true,
               "uri": true
             },
-            "indexByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "_expiresAsTimestamp": 2,
+              "_id": 3,
+              "_index": 4,
+              "_lastUpdated": 5,
+              "_type": 6,
+              "client-uuid": 49,
+              "expires": 1,
+              "group-communities": 7,
+              "group-domains": 8,
+              "highlight": 9,
+              "host-administrators": 10,
+              "host-hardware-cpuid": 11,
+              "host-hardware-memory": 12,
+              "host-hardware-processorcore": 13,
+              "host-hardware-processorcount": 14,
+              "host-hardware-processorspeed": 15,
+              "host-manufacturer": 16,
+              "host-name": 0,
+              "host-net-interfaces": 17,
+              "host-net-ipv6-enabled": 18,
+              "host-net-tcp-autotunemaxbuffer-recv": 19,
+              "host-net-tcp-autotunemaxbuffer-send": 20,
+              "host-net-tcp-congestionalgorithm": 21,
+              "host-net-tcp-maxbuffer-recv": 22,
+              "host-net-tcp-maxbuffer-send": 23,
+              "host-os-architecture": 24,
+              "host-os-kernel": 25,
+              "host-os-name": 26,
+              "host-os-version": 27,
+              "host-productname": 28,
+              "host-vm": 29,
+              "location-city": 30,
+              "location-code": 31,
+              "location-country": 32,
+              "location-latitude": 33,
+              "location-longitude": 34,
+              "location-sitename": 35,
+              "location-state": 36,
+              "pshost-access-notes": 37,
+              "pshost-access-policy": 38,
+              "pshost-bundle": 39,
+              "pshost-bundle-version": 40,
+              "pshost-install-method": 41,
+              "pshost-role": 42,
+              "pshost-toolkitversion": 43,
+              "sort": 44,
+              "state": 45,
+              "ttl": 46,
+              "type": 47,
+              "uri": 48
+            },
             "renameByName": {
+              "group-communities": "Communities",
+              "group-domains": "Domains",
+              "highlight": "",
+              "host-hardware-cpuid": "Host's Processor",
+              "host-hardware-processorcount": "Number of Proccessors ",
+              "host-manufacturer": "Manufacturer",
+              "host-name": "Host Name",
+              "host-net-ipv6-enabled": "IPv6 enabled",
+              "host-os-architecture": "Architecture",
+              "host-os-kernel": "Kernel and Version Running ",
+              "host-os-name": "Name of Operating System",
+              "host-os-version": "Version of Operating System ",
+              "host-productname": "Model of the hardware or VM host",
+              "host-vm": "Virtualisation",
+              "location-city": "City",
+              "location-code": "",
+              "location-country": "Country",
               "location-latitude": "latitude",
-              "location-longitude": "longitude"
+              "location-longitude": "longitude",
+              "pshost-access-policy": "Type of the Host Privacy",
+              "pshost-bundle": "perfSONAR Package Bundle Installed",
+              "pshost-bundle-version": "A Version of perfSONAR Bundle Installed",
+              "pshost-toolkitversion": "perfSONAR Toolkit Version"
             }
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "string",
+                "targetField": "Host Name"
+              }
+            ],
+            "fields": {}
           }
         }
       ],
-      "transparent": true,
       "type": "geomap"
     },
     {
-      "datasource": null,
-      "description": "",
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "color-background"
+            },
+            "inspect": false
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
+                "color": "#c9fbc3",
                 "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 11,
+        "y": 3
+      },
+      "id": 92,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "host-name",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Host name",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 17,
+        "y": 3
+      },
+      "id": 97,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "group-communities.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Communities ",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "host-vm.keyword"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 1,
+                        "text": "Physical machine"
+                      },
+                      "1": {
+                        "index": 0,
+                        "text": "Virtual machine"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "empty",
+                      "result": {
+                        "index": 2,
+                        "text": "missing"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 11,
+        "y": 11
+      },
+      "id": 96,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "host-vm.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Virtualisation of the nodes",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 17,
+        "y": 11
+      },
+      "id": 95,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "group-domains.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Domains",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 19
+      },
+      "id": 98,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 24,
+        "minVizHeight": 0,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "manual",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "host-os-name.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Operating System",
+      "transformations": [
+        {
+          "id": "rowsToFields",
+          "options": {}
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Centos",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "CentOS Linux",
+                "CentOS"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Ubuntu",
+                "AlmaLinux",
+                "Debian",
+                "Rocky Linux",
+                "Red Hat Enterprise Linux Server",
+                "Red Hat Enterprise Linux",
+                "Scientific Linux",
+                "missing",
+                "Red Hat Enterprise Linux Workstation",
+                "Centos"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 5,
+        "y": 19
+      },
+      "id": 99,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "host-os-version.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Operating System Version",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 11,
+        "y": 19
+      },
+      "id": 100,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "pshost-bundle.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "perfSONAR Package Bundle Installed",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 17,
+        "y": 19
+      },
+      "id": 94,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "pshost-toolkitversion.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:host",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Toolkit Version",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "c1e80f11-07a5-4a30-97c5-9ffe06f71117"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 8,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "c1e80f11-07a5-4a30-97c5-9ffe06f71117"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Service Information",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "noValue": "Unknown",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red"
               },
               {
                 "color": "orange",
@@ -3022,12 +1324,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 18,
-        "w": 14,
-        "x": 9,
-        "y": 70
+        "h": 16,
+        "w": 11,
+        "x": 0,
+        "y": 28
       },
-      "id": 82,
+      "id": 34,
       "options": {
         "basemap": {
           "config": {},
@@ -3038,6 +1340,7 @@
           "mouseWheelZoom": true,
           "showAttribution": true,
           "showDebug": false,
+          "showMeasure": false,
           "showScale": false,
           "showZoom": true
         },
@@ -3045,35 +1348,34 @@
           {
             "config": {
               "color": {
-                "fixed": "#bc6c21"
+                "fixed": "dark-green"
               },
-              "fillOpacity": 0.4,
+              "fillOpacity": 0.3,
               "shape": "circle",
               "showLegend": true,
               "size": {
-                "fixed": 1,
+                "fixed": 2,
                 "max": 15,
                 "min": 2
               },
               "style": {
                 "color": {
-                  "fixed": "light-blue"
-                },
-                "opacity": 0.2,
-                "symbol": {
-                  "fixed": "img/icons/marker/circle.svg",
-                  "mode": "fixed"
+                  "fixed": "light-green"
                 }
               }
             },
             "location": {
               "mode": "auto"
             },
-            "name": "Layer 1",
+            "name": "Services:",
             "type": "markers"
           }
         ],
+        "tooltip": {
+          "mode": "details"
+        },
         "view": {
+          "allLayers": true,
           "id": "coords",
           "lat": 0,
           "lon": 0,
@@ -3081,26 +1383,30 @@
           "zoom": 2
         }
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "10.4.5",
       "targets": [
         {
           "alias": "",
           "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
           "metrics": [
             {
               "id": "1",
               "settings": {
-                "size": "10000"
+                "limit": "10000"
               },
-              "type": "raw_data"
+              "type": "logs"
             }
           ],
-          "query": "type:service",
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
           "refId": "A",
           "timeField": "expires"
         }
       ],
-      "title": "Services Locations",
+      "title": "Service Locations",
       "transformations": [
         {
           "id": "organize",
@@ -3108,91 +1414,230 @@
             "excludeByName": {
               "_expiresAsTimestamp": true,
               "_id": true,
-              "_index": false,
+              "_index": true,
               "_lastUpdated": true,
               "_type": true,
-              "client-uuid": true,
+              "bwctl-tools": true,
+              "client-uuid": false,
               "expires": true,
-              "group-communities": false,
+              "highlight": true,
+              "id": true,
+              "location-code": true,
               "location-country": false,
               "location-latitude": false,
+              "location-state": true,
+              "ma-tests": true,
+              "ma-type": true,
+              "psservice-eventtypes": true,
               "service-administrators": true,
               "service-host": true,
-              "service-type": true,
               "sort": true,
+              "state": true,
               "ttl": true,
+              "type": true,
               "uri": true
             },
-            "indexByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "_expiresAsTimestamp": 1,
+              "_id": 2,
+              "_index": 3,
+              "_lastUpdated": 4,
+              "_type": 5,
+              "bwctl-tools": 7,
+              "client-uuid": 33,
+              "expires": 0,
+              "group-communities": 15,
+              "group-domains": 16,
+              "highlight": 6,
+              "location-city": 17,
+              "location-code": 8,
+              "location-country": 18,
+              "location-latitude": 32,
+              "location-longitude": 31,
+              "location-sitename": 19,
+              "location-state": 20,
+              "ma-tests": 29,
+              "ma-type": 30,
+              "pscheduler-tests": 13,
+              "pscheduler-tools": 14,
+              "psservice-eventtypes": 21,
+              "service-administrators": 22,
+              "service-host": 23,
+              "service-locator": 10,
+              "service-name": 9,
+              "service-type": 11,
+              "service-version": 12,
+              "sort": 24,
+              "state": 25,
+              "ttl": 26,
+              "type": 27,
+              "uri": 28
+            },
             "renameByName": {
+              "group-communities": "Communities",
+              "group-domains": "Domains",
+              "highlight": "",
+              "location-city": "City",
+              "location-code": "",
+              "location-country": "Country ",
               "location-latitude": "latitude",
-              "location-longitude": "longitude"
+              "location-longitude": "longitude",
+              "location-sitename": "Location",
+              "location-state": "",
+              "pscheduler-tests": "pScheduler tests",
+              "pscheduler-tools": "pScheduler tools",
+              "service-locator": "Service Locator",
+              "service-name": "Service Name",
+              "service-type": "Service Type",
+              "service-version": "Service Version"
             }
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "string",
+                "targetField": "service-name"
+              }
+            ],
+            "fields": {}
           }
         }
       ],
-      "transparent": true,
       "type": "geomap"
     },
     {
-      "datasource": null,
-      "description": "",
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Count"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
               },
               {
-                "color": "#EF843C",
-                "value": 1
+                "id": "custom.align",
+                "value": "left"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 11,
+        "y": 28
+      },
+      "id": 105,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "service-locator.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Service Locator",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
               },
               {
-                "color": "light-blue",
-                "value": 2
-              },
-              {
-                "color": "#EAB839",
-                "value": 3
-              },
-              {
-                "color": "semi-dark-red",
-                "value": 4
-              },
-              {
-                "color": "#40432e",
-                "value": 5
-              },
-              {
-                "color": "dark-purple",
-                "value": 6
-              },
-              {
-                "color": "light-purple",
-                "value": 7
-              },
-              {
-                "color": "super-light-green",
-                "value": 8
-              },
-              {
-                "color": "#6ED0E0",
-                "value": 9
-              },
-              {
-                "color": "super-light-yellow",
-                "value": 10
-              },
-              {
-                "color": "dark-blue",
-                "value": 20
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -3200,124 +1645,45 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 19,
-        "w": 14,
-        "x": 0,
-        "y": 88
+        "h": 8,
+        "w": 6,
+        "x": 11,
+        "y": 36
       },
-      "id": 84,
+      "id": 103,
       "options": {
-        "basemap": {
-          "config": {},
-          "name": "Layer 0",
-          "type": "default"
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
         },
-        "controls": {
-          "mouseWheelZoom": true,
-          "showAttribution": true,
-          "showDebug": false,
-          "showScale": false,
-          "showZoom": true
-        },
-        "layers": [
-          {
-            "config": {
-              "color": {
-                "field": "Count",
-                "fixed": "dark-green"
-              },
-              "fillOpacity": 0.9,
-              "shape": "circle",
-              "showLegend": true,
-              "size": {
-                "fixed": 5,
-                "max": 15,
-                "min": 2
-              },
-              "style": {
-                "color": {
-                  "field": "Count",
-                  "fixed": "dark-green"
-                }
-              }
-            },
-            "location": {
-              "lookup": "location-country.keyword",
-              "mode": "lookup"
-            },
-            "name": "Layer 1",
-            "type": "markers"
-          }
-        ],
-        "view": {
-          "id": "zero",
-          "lat": 0,
-          "lon": 0,
-          "zoom": 2
-        }
+        "showHeader": false
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "10.4.5",
       "targets": [
         {
           "alias": "",
           "bucketAggs": [
             {
-              "field": "location-country.keyword",
+              "field": "service-type.keyword",
               "id": "2",
               "settings": {
                 "min_doc_count": "1",
+                "missing": "missing",
                 "order": "desc",
-                "orderBy": "_term",
+                "orderBy": "1",
                 "size": "0"
               },
               "type": "terms"
             }
           ],
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "type:host",
-          "refId": "A",
-          "timeField": "expires"
-        }
-      ],
-      "title": "Countries, where registered nodes reside",
-      "transparent": true,
-      "type": "geomap"
-    },
-    {
-      "datasource": null,
-      "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 107
-      },
-      "id": 91,
-      "options": {
-        "content": "<center>\n\t  perfSONAR is developed by a partnership of these institutions:\n\t  <br/>\n\t  <br/>\n\t  <a href=\"https://www.es.net\"><img src=\"https://www.perfsonar.net/images/logos/esnet.png\" alt=\"ESNet Logo\" target=\"_blank\" height=\"20.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.geant.net\"><img src=\"https://www.perfsonar.net/images/logos/geant.svg\" alt=\"GÉANT Logo\" target=\"_blank\" height=\"31.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.iu.edu\"><img src=\"https://www.perfsonar.net/images/logos/indiana.svg\" alt=\"Indiana University Logo\" target=\"_blank\" height=\"31.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.internet2.edu\"><img src=\"https://www.perfsonar.net/images/logos/internet2.svg\" alt=\"Internet2 Logo\" target=\"_blank\" height=\"34.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.rnp.br/en\"><img src=\"https://www.perfsonar.net/images/logos/rnp.png\" alt=\"RNP Logo\" target=\"_blank\" height=\"32.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.umich.edu\"><img src=\"https://www.perfsonar.net/images/logos/umich.svg\" alt=\"University of Michigan Logo\" target=\"_blank\" height=\"36.0pt\" /></a>\n\t  <br />\n\t  <br />\n\t  <p>&copy;2023 The perfSONAR Project and contributors.\n\t</center>",
-        "mode": "html"
-      },
-      "pluginVersion": "8.1.8",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "expires",
-              "id": "2",
-              "settings": {
-                "interval": "auto"
-              },
-              "type": "date_histogram"
-            }
-          ],
           "datasource": {
             "type": "elasticsearch",
-            "uid": "k-5GTrl7z"
+            "uid": "bdsie3uo4j11ce"
           },
           "metrics": [
             {
@@ -3325,45 +1691,1403 @@
               "type": "count"
             }
           ],
-          "query": "",
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
           "refId": "A",
           "timeField": "expires"
         }
       ],
-      "transparent": true,
-      "type": "text"
+      "title": "Service Type",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 17,
+        "y": 36
+      },
+      "id": 104,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "service-version.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Service Version",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 44
+      },
+      "id": 102,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "group-domains.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Domains",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 5,
+        "y": 44
+      },
+      "id": 101,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "group-communities.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "Communities ",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#d9f7d5",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 11,
+        "y": 44
+      },
+      "id": 106,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "pscheduler-tools.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "pScheduler Tools",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "bdsie3uo4j11ce"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 17,
+        "y": 44
+      },
+      "id": 107,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "10.4.5",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "pscheduler-tools.keyword",
+              "id": "2",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "missing",
+                "order": "desc",
+                "orderBy": "1",
+                "size": "0"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "location-country.keyword:${CountryCode} AND group-domains.keyword:${Domain} AND group-communities.keyword:${Communities} AND type:service",
+          "refId": "A",
+          "timeField": "expires"
+        }
+      ],
+      "title": "pScheduler Tests",
+      "type": "table"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 52
+      },
+      "id": 108,
+      "panels": [
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "green",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 8,
+            "x": 0,
+            "y": 5
+          },
+          "id": 109,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "type",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "0"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "hide": false,
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "perfSONAR hosts",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 7,
+            "x": 8,
+            "y": 5
+          },
+          "id": 110,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "type",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "0"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:service",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "perfSONAR services",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "super-light-blue",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 8,
+            "x": 15,
+            "y": 5
+          },
+          "id": 111,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "type",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "0"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:interface",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "perfSONAR Interfaces",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "description": "Community, project or any other group that host belongs to.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "super-light-blue",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 23,
+            "x": 0,
+            "y": 12
+          },
+          "id": 112,
+          "options": {
+            "displayMode": "gradient",
+            "maxVizHeight": 300,
+            "minVizHeight": 10,
+            "minVizWidth": 0,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": true
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "group-communities.keyword",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "Top 10 Communities ",
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "description": "Administrative domains in which host resides.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "super-light-yellow"
+                  },
+                  {
+                    "color": "green",
+                    "value": 30
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 23,
+            "x": 0,
+            "y": 22
+          },
+          "id": 113,
+          "options": {
+            "displayMode": "gradient",
+            "maxVizHeight": 300,
+            "minVizHeight": 10,
+            "minVizWidth": 0,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": true
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "group-domains.keyword",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "Top 10 Domains",
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "description": "Name of perfSONAR package bundle installed.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "perfsonar-core"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 32
+          },
+          "id": 114,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.5.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "pshost-bundle.keyword",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "PS Bundle",
+          "transformations": [
+            {
+              "id": "rowsToFields",
+              "options": {}
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "perfsonar-testpoint",
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "perfsonar-testpoint",
+                    "test-point"
+                  ],
+                  "reducer": "sum"
+                },
+                "replaceFields": false
+              }
+            },
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "perfsonar-toolkit",
+                    "perfsonar-centralmanagement",
+                    "perfsonar-tools",
+                    "perfsonar-core",
+                    "perfsonar-complete",
+                    "tools",
+                    "perfsonar-testpoint 2"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "perfsonar-tools",
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "perfsonar-tools",
+                    "tools"
+                  ],
+                  "reducer": "sum"
+                }
+              }
+            },
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "perfsonar-toolkit",
+                    "perfsonar-centralmanagement",
+                    "perfsonar-core",
+                    "perfsonar-complete",
+                    "perfsonar-testpoint 2",
+                    "perfsonar-tools 2"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "description": "A version of perfSONAR Toolkit installed.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "super-light-yellow",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 11,
+            "x": 12,
+            "y": 32
+          },
+          "id": 115,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 10,
+            "minVizWidth": 0,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": true
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "pshost-toolkitversion.keyword",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "missing": "unknown",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "PS toolkit version",
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "description": "Record state of the host.",
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "semi-dark-green"
+                  },
+                  {
+                    "color": "super-light-orange",
+                    "value": 70
+                  },
+                  {
+                    "color": "dark-yellow",
+                    "value": 85
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 12,
+            "x": 0,
+            "y": 42
+          },
+          "id": 117,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "state",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "State",
+          "transformations": [
+            {
+              "id": "rowsToFields",
+              "options": {}
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "bdsie3uo4j11ce"
+          },
+          "description": "Type of the host privacy.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "perfsonar-core"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 12,
+            "y": 42
+          },
+          "id": 116,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.5.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "pshost-access-policy.keyword",
+                  "id": "2",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  },
+                  "type": "terms"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "bdsie3uo4j11ce"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "type:host",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "title": "Access Policy",
+          "transformations": [
+            {
+              "id": "rowsToFields",
+              "options": {}
+            },
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "public",
+                    "research-education",
+                    "private",
+                    "limited"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "k-5GTrl7z"
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 24,
+            "x": 0,
+            "y": 53
+          },
+          "id": 91,
+          "options": {
+            "code": {
+              "language": "plaintext",
+              "showLineNumbers": false,
+              "showMiniMap": false
+            },
+            "content": "<center>\n\t  perfSONAR is developed by a partnership of these institutions:\n\t  <br/>\n\t  <br/>\n\t  <a href=\"https://www.es.net\"><img src=\"https://www.perfsonar.net/images/logos/esnet.png\" alt=\"ESNet Logo\" target=\"_blank\" height=\"20.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.geant.net\"><img src=\"https://www.perfsonar.net/images/logos/geant.svg\" alt=\"GÉANT Logo\" target=\"_blank\" height=\"31.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.iu.edu\"><img src=\"https://www.perfsonar.net/images/logos/indiana.svg\" alt=\"Indiana University Logo\" target=\"_blank\" height=\"31.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.internet2.edu\"><img src=\"https://www.perfsonar.net/images/logos/internet2.svg\" alt=\"Internet2 Logo\" target=\"_blank\" height=\"34.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.rnp.br/en\"><img src=\"https://www.perfsonar.net/images/logos/rnp.png\" alt=\"RNP Logo\" target=\"_blank\" height=\"32.0pt\" /></a>\n\t  &nbsp;&nbsp;\n\t  <a href=\"https://www.umich.edu\"><img src=\"https://www.perfsonar.net/images/logos/umich.svg\" alt=\"University of Michigan Logo\" target=\"_blank\" height=\"36.0pt\" /></a>\n\t  <br />\n\t  <br />\n\t  <p>&copy;2024 The perfSONAR Project and contributors.\n\t</center>",
+            "mode": "html"
+          },
+          "pluginVersion": "10.4.5",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [
+                {
+                  "field": "expires",
+                  "id": "2",
+                  "settings": {
+                    "interval": "auto"
+                  },
+                  "type": "date_histogram"
+                }
+              ],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "k-5GTrl7z"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "query": "",
+              "refId": "A",
+              "timeField": "expires"
+            }
+          ],
+          "transparent": true,
+          "type": "text"
+        }
+      ],
+      "title": "General Information",
+      "type": "row"
     }
   ],
   "refresh": "",
-  "schemaVersion": 30,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": true,
-          "text": "",
-          "value": ""
-        },
-        "description": null,
-        "error": null,
-        "hide": 0,
-        "label": null,
-        "name": "Search",
-        "options": [
-          {
-            "selected": true,
-            "text": "",
-            "value": ""
-          }
-        ],
-        "query": "",
-        "skipUrlSync": false,
-        "type": "textbox"
-      },
-      {
-        "allValue": "/.*/",
+        "allValue": "(/.*/ (!_exists_:location-country.keyword))",
         "current": {
           "selected": true,
           "text": [
@@ -3373,25 +3097,26 @@
             "$__all"
           ]
         },
-        "datasource": null,
-        "definition": "{\"find\": \"terms\", \"field\":\"group-domains.keyword\", \"size\": 5000}",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "bdsie3uo4j11ce"
+        },
+        "definition": "{\"find\": \"terms\", \"field\":\"location-country.keyword\", \"size\": 1000}",
         "hide": 0,
         "includeAll": true,
-        "label": "Domain",
+        "label": "Country_Code",
         "multi": true,
-        "name": "Domain",
+        "name": "CountryCode",
         "options": [],
-        "query": "{\"find\": \"terms\", \"field\":\"group-domains.keyword\", \"size\": 5000}",
+        "query": "{\"find\": \"terms\", \"field\":\"location-country.keyword\", \"size\": 1000}",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 3,
+        "sort": 0,
         "type": "query"
       },
       {
-        "allValue": "/.*/",
+        "allValue": "(/.*/ (!_exists_:group-domains.keyword))",
         "current": {
           "selected": true,
           "text": [
@@ -3401,13 +3126,41 @@
             "$__all"
           ]
         },
-        "datasource": null,
-        "definition": "{\"find\": \"terms\",\"query\":\"$Domain\", \"field\":\"group-communities.keyword\", \"size\": 5000}",
-        "description": null,
-        "error": null,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "bdsie3uo4j11ce"
+        },
+        "definition": "{\"find\": \"terms\",\"query\":\"$CountryCode\", \"field\":\"group-domains.keyword\", \"size\": 1000}",
         "hide": 0,
         "includeAll": true,
-        "label": "Communities",
+        "multi": true,
+        "name": "Domain",
+        "options": [],
+        "query": "{\"find\": \"terms\",\"query\":\"$CountryCode\", \"field\":\"group-domains.keyword\", \"size\": 1000}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allValue": "(/.*/ (!_exists_:group-communities.keyword))",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "bdsie3uo4j11ce"
+        },
+        "definition": "{\"find\": \"terms\",\"query\":\"$Domain\", \"field\":\"group-communities.keyword\", \"size\": 5000}",
+        "hide": 0,
+        "includeAll": true,
         "multi": true,
         "name": "Communities",
         "options": [],
@@ -3415,8 +3168,20 @@
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 3,
+        "sort": 0,
         "type": "query"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "bdsie3uo4j11ce"
+        },
+        "description": "How to use Filter:\n1. Choose the field, eg. host-name\n2. Choose the filter condition, eg.  =~\n3. Specify the host-name, eg.     .*part_of_hostname.*",
+        "filters": [],
+        "hide": 0,
+        "name": "Filters",
+        "skipUrlSync": false,
+        "type": "adhoc"
       }
     ]
   },
@@ -3425,10 +3190,11 @@
     "to": "now+24h"
   },
   "timepicker": {
-    "hidden": false
+    "hidden": true
   },
   "timezone": "",
   "title": "perfSONAR Public",
-  "uid": "spFwAQi4z",
-  "version": 52
+  "uid": "db0e6ecb-3fe3-46b3-9745-edf6a209e7cf",
+  "version": 34,
+  "weekStart": ""
 }
